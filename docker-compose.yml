@@ -16,5 +16,6 @@ services:
       - 8082:8000
     volumes:
       - ${DB_DATA}:/app/dbdata/
+      - ${MEDIA_DIR}:/app/media/
     entrypoint: docker-entrypoint.sh
 
