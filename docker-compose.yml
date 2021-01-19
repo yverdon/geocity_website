@@ -2,7 +2,6 @@ version: '3.8'
 
 services:
   app:
-    tty: true
     image: geocity-website:0.0.1
     environment:
       - PROJECT_NAME
