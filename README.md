@@ -19,7 +19,7 @@ Code for a [Wagtail](https://wagtail.io/) +
    ```
 
 1. Prepare your environment and variables in your `.env` file.
-   Use the provided `.env.sample` to get inspired.
+   Use the provided `env.sample` file to get inspired.
 
    You will especially have to:
 
@@ -49,8 +49,8 @@ Code for a [Wagtail](https://wagtail.io/) +
 
 ## Useful docker commands
 
-| Command                                              | Description  | 
-|:-----------------------------------------------------|:-------------|
+| Command                                    | Description  | 
+|:-------------------------------------------|:-------------|
 | `docker-compose build`                     | Build the app.         |
 | `docker-compose up`                        | Run the app in the forground.   |
 | `docker-compose up --build`                | Build and run the app in the forground.     |
