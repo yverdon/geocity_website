@@ -8,9 +8,10 @@ https://docs.djangoproject.com/en/3.0/howto/deployment/wsgi/
 """
 
 import os
+from django.conf import settings
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "geocity_website.settings.dev")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", settings.PROJECT_NAME+".settings.dev")
 
 application = get_wsgi_application()

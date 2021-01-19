@@ -26,7 +26,7 @@ PROJECT_NAME = os.environ['PROJECT_NAME']
 
 INSTALLED_APPS = [
     # This project
-    PROJECT_NAME,
+    'website',
 
     # CodeRed CMS
     'coderedcms',

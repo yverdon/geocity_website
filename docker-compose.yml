@@ -2,7 +2,6 @@ version: '3.8'
 
 services:
   app:
-    tty: true
     image: geocity-website:0.0.1
     environment:
       - PROJECT_NAME
@@ -16,5 +15,6 @@ services:
       - 8082:8000
     volumes:
       - ${DB_DATA}:/app/dbdata/
+      - ${MEDIA_DIR}:/app/media/
     entrypoint: docker-entrypoint.sh
 
