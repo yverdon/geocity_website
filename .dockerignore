@@ -1,6 +1,7 @@
 venv/
 *.py[cod]
 __pycache__/
+media/
 docker-compose.yml
 Dockerfile
 .git
