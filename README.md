@@ -22,6 +22,13 @@ Code for a [Wagtail](https://wagtail.io/) +
    Use the provided `.env.sample` to get inspired.
 
    You will especially have to:
+
+   * **Generate** a [`DJANGO_SECRET_KEY`]().    
+   This can be done using [`get_random_secret_key`](https://github.com/django/django/blob/3c447b108ac70757001171f7a4791f493880bf5b/django/core/management/utils.py#L82).    
+   E.g.:    
+   ```
+   python manage.py shell -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+   ```
    
    * **Create** a directory to store the media data wherever you want
    on your host machine.
