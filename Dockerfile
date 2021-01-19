@@ -5,13 +5,9 @@ ENV PYTHONUNBUFFERED 1
 ENV DJANGO_ENV "dev"
 ENV DJANGO_SETTINGS_MODULE "${PROJECT_NAME}.settings.dev"
 
-RUN apt-get -yq update && apt-get -yq install --no-install-recommends \
-  build-essential \
-  libpq-dev \
-  libmariadbclient-dev \
-  libjpeg62-turbo-dev \
-  zlib1g-dev \
-  libwebp-dev \
+RUN apt-get update && apt-get -yq install --no-install-recommends \
+  gcc libpq-dev zlib1g-dev libwebp-dev libpq5 \
+  libjpeg-dev libjpeg62-turbo-dev libpng-dev libtiff-dev python3-dev \
   httpie wget curl nano \
   && rm -rf /var/lib/apt/lists/*
 
@@ -28,6 +24,8 @@ COPY . /app/
 RUN mv docker-entrypoint.sh /usr/local/bin/ \
   && chmod +x /usr/local/bin/docker-entrypoint.sh \
   && useradd --create-home --shell /bin/bash coderedcms \
-  && chown -R coderedcms /app/
+  && usermod -u 1234 coderedcms \
+  && groupmod -g 4567 coderedcms \
+  && chown -R 1234:5678 /app/
 
 USER coderedcms
