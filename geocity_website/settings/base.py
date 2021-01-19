@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 from django.utils.translation import gettext_lazy as _
+from django.core.exceptions import ImproperlyConfigured
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
@@ -20,6 +21,14 @@ PROJECT_NAME = os.environ['PROJECT_NAME']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
+
+
+def get_env_value(env_variable):
+    try:
+        return os.environ[env_variable]
+    except KeyError:
+        error_msg = 'Set the {} environment variable'.format(env_variable)
+        raise ImproperlyConfigured(error_msg)
 
 
 # Application definition
@@ -115,11 +124,11 @@ WSGI_APPLICATION = PROJECT_NAME+'.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': os.environ['PG_HOST'],
-        'PORT': os.environ['PG_PORT'],
-        'NAME': os.environ['PG_DATABASE'],
-        'USER': os.environ['PG_USER'],
-        'PASSWORD': os.environ['PG_PASSWORD']
+        'HOST': get_env_value('PG_HOST'),
+        'PORT': int(get_env_value('PG_PORT')),
+        'NAME': get_env_value('PG_DATABASE'),
+        'USER': get_env_value('PG_USER'),
+        'PASSWORD': get_env_value('PG_PASSWORD')
     }
 }
 
