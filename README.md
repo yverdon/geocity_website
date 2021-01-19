@@ -15,7 +15,7 @@ Code for a [Wagtail](https://wagtail.io/) +
 
 0. **Clone** the project:
    ```
-   git clone https://github.com/yverdon/geocity_website.git
+   git clone https://github.com/yverdon/geocity_website.git && cd geocity_website
    ```
 
 1. Prepare your environment and variables in your `.env` file.
